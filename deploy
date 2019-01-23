@@ -1,0 +1,50 @@
+# Variable init
+ACTNAME=RiverHexActivity
+ACTLOWNAME=riverhexactivity
+ACTVERSION=2
+USERHOME=/home/user
+HOSTDIR=/mnt/hgfs/D
+
+# Build message file
+echo Generate message file
+msgfmt po/fr.po -o ${ACTNAME}.activity/bin/locale/fr/LC_MESSAGES/org.olpcfrance.${ACTNAME}.mo
+
+# Change config to Mono GAC to use local path
+echo Local config DLL
+sudo cp /usr/lib/mono/gac/gtk-sharp/2.12.0.0__35e10195dab3c99f/local.config /usr/lib/mono/gac/gtk-sharp/2.12.0.0__35e10195dab3c99f/gtk-sharp.dll.config
+sudo cp /usr/lib/mono/gac/glib-sharp/2.12.0.0__35e10195dab3c99f/local.config /usr/lib/mono/gac/glib-sharp/2.12.0.0__35e10195dab3c99f/glib-sharp.dll.config
+sudo cp /usr/lib/mono/gac/gdk-sharp/2.12.0.0__35e10195dab3c99f/local.config /usr/lib/mono/gac/gdk-sharp/2.12.0.0__35e10195dab3c99f/gdk-sharp.dll.config
+sudo cp /usr/lib/mono/gac/pango-sharp/2.12.0.0__35e10195dab3c99f/local.config /usr/lib/mono/gac/pango-sharp/2.12.0.0__35e10195dab3c99f/pango-sharp.dll.config
+sudo cp /usr/lib/mono/gac/atk-sharp/2.12.0.0__35e10195dab3c99f/local.config /usr/lib/mono/gac/atk-sharp/2.12.0.0__35e10195dab3c99f/atk-sharp.dll.config
+
+# Build the bundle
+cd ${USERHOME}/${ACTNAME}/bin/Debug
+echo Making bundle...
+mkbundle2 --config /etc/mono/config --deps --static -o ${ACTLOWNAME}.exe ${ACTNAME}.exe Sugar.dll NDesk.DBus.dll NDesk.DBus.GLib.dll
+echo Copying to template...
+cp ${ACTLOWNAME}.exe ${USERHOME}/${ACTNAME}/${ACTNAME}.activity/bin
+
+# Copy activity to local Sugar emulation
+if [ -e "${USERHOME}/Activities/${ACTNAME}.activity" ] ; then
+  echo Copying to local Sugar...
+  rm -r ${USERHOME}/Activities/${ACTNAME}.activity
+  cp -r ${USERHOME}/${ACTNAME}/${ACTNAME}.activity ${USERHOME}/Activities
+fi
+
+# Create a .XO package
+echo Create a .XO
+cd ${USERHOME}/${ACTNAME}
+zip -r ${ACTNAME}.activity/* ${ACTNAME}.activity/activity/activity.info ${ACTNAME}.activity/activity/activity-${ACTLOWNAME}.svg
+mv ${ACTNAME}.activity/activity.zip ${USERHOME}/${ACTNAME}/${ACTNAME}-${ACTVERSION}.xo
+
+# Copy .XO to VM host
+echo Copy .XO to host
+cp ${USERHOME}/${ACTNAME}/${ACTNAME}-${ACTVERSION}.xo ${HOSTDIR}
+
+# Change config to Mono GAC to use global path
+echo Global config DLL
+sudo cp /usr/lib/mono/gac/gtk-sharp/2.12.0.0__35e10195dab3c99f/global.config /usr/lib/mono/gac/gtk-sharp/2.12.0.0__35e10195dab3c99f/gtk-sharp.dll.config
+sudo cp /usr/lib/mono/gac/glib-sharp/2.12.0.0__35e10195dab3c99f/global.config /usr/lib/mono/gac/glib-sharp/2.12.0.0__35e10195dab3c99f/glib-sharp.dll.config
+sudo cp /usr/lib/mono/gac/gdk-sharp/2.12.0.0__35e10195dab3c99f/global.config /usr/lib/mono/gac/gdk-sharp/2.12.0.0__35e10195dab3c99f/gdk-sharp.dll.config
+sudo cp /usr/lib/mono/gac/pango-sharp/2.12.0.0__35e10195dab3c99f/global.config /usr/lib/mono/gac/pango-sharp/2.12.0.0__35e10195dab3c99f/pango-sharp.dll.config
+sudo cp /usr/lib/mono/gac/atk-sharp/2.12.0.0__35e10195dab3c99f/global.config /usr/lib/mono/gac/atk-sharp/2.12.0.0__35e10195dab3c99f/atk-sharp.dll.config

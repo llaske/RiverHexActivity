@@ -1,0 +1,56 @@
+<Project name="RiverHexActivity" fileversion="2.0" language="C#" clr-version="Net_2_0" ctype="DotNetProject">
+  <Configurations active="Debug">
+    <Configuration name="Debug" ctype="DotNetProjectConfiguration">
+      <Output directory="bin/Debug" assembly="RiverHexActivity" />
+      <Build debugmode="True" target="Exe" />
+      <Execution runwithwarnings="True" consolepause="True" runtime="MsNet" clr-version="Net_2_0" />
+      <CodeGeneration compiler="Mcs" warninglevel="4" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" definesymbols="DEBUG" generatexmldocumentation="False" ctype="CSharpCompilerParameters" />
+    </Configuration>
+    <Configuration name="Release" ctype="DotNetProjectConfiguration">
+      <Output directory="bin/Release" assembly="RiverHexActivity" />
+      <Build debugmode="False" target="Exe" />
+      <Execution runwithwarnings="True" consolepause="True" runtime="MsNet" clr-version="Net_2_0" />
+      <CodeGeneration compiler="Mcs" warninglevel="4" optimize="True" unsafecodeallowed="False" generateoverflowchecks="True" generatexmldocumentation="False" ctype="CSharpCompilerParameters" />
+    </Configuration>
+  </Configurations>
+  <Contents>
+    <File name="gtk-gui/gui.stetic" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="gtk-gui/generated.cs" subtype="Code" buildaction="Compile" />
+    <File name="AssemblyInfo.cs" subtype="Code" buildaction="Compile" />
+    <File name="MainWindow.cs" subtype="Code" buildaction="Compile" />
+    <File name="RiverHex.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="quit.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="Hex.cs" subtype="Code" buildaction="Compile" />
+    <File name="Game.cs" subtype="Code" buildaction="Compile" />
+    <File name="hex9x9.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="hex7x7.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="hex11x11.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="2player.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="HexValue.cs" subtype="Code" buildaction="Compile" />
+    <File name="HexCoord.cs" subtype="Code" buildaction="Compile" />
+    <File name="ComputerStrategy.cs" subtype="Code" buildaction="Compile" />
+    <File name="1playerL1.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="1playerL2.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="1playerL3.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="reverse.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="tojournal.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="hex7x7_r.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="1playerL1_r.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="1playerL2_r.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="1playerL3_r.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="2player_r.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="hex9x9_r.png" subtype="Code" buildaction="EmbedAsResource" />
+    <File name="hex11x11_r.png" subtype="Code" buildaction="EmbedAsResource" />
+  </Contents>
+  <References>
+    <ProjectReference type="Gac" localcopy="True" refto="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <ProjectReference type="Gac" localcopy="True" refto="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <ProjectReference type="Gac" localcopy="True" refto="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <ProjectReference type="Gac" localcopy="True" refto="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <ProjectReference type="Gac" localcopy="True" refto="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <ProjectReference type="Gac" localcopy="True" refto="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <ProjectReference type="Gac" localcopy="True" refto="Mono.Posix, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <ProjectReference type="Assembly" localcopy="True" refto="Sugar.dll" />
+  </References>
+  <GtkDesignInfo gtkVersion="2.12.0" />
+</Project>

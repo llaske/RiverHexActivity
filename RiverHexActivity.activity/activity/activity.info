@@ -1,0 +1,8 @@
+[Activity]
+name = RiverHex
+activity_version = 2
+host_version = 1
+service_name = org.olpcfrance.RiverHexActivity
+icon = activity-riverhexactivity
+exec = riverhexactivity-activity
+mime_types = application/riverhexactivity

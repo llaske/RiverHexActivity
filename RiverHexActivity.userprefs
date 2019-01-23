@@ -1,0 +1,27 @@
+﻿<UserCombinePreferences version="1.0" filename="/home/user/RiverHexActivity/RiverHexActivity.mds">
+  <Files>
+    <File name="Welcome" />
+    <File name="Hex.cs" line="18" column="13" />
+    <File name="Game.cs" line="285" column="18" />
+    <File name="MainWindow.cs" line="198" column="19" />
+    <File name="po/fr.po" line="20" column="17" />
+  </Files>
+  <Views>
+    <ViewMemento id="ProjectPad">
+      <Node expanded="True">
+        <Node name="RiverHexActivity" expanded="True">
+          <Node name="Resources" expanded="True" />
+          <Node name="UserInterface" expanded="True" />
+          <Node name="Game.cs" selected="True" />
+        </Node>
+      </Node>
+    </ViewMemento>
+    <ViewMemento id="ClassPad">
+      <Node expanded="True" />
+    </ViewMemento>
+  </Views>
+  <Properties>
+    <Property key="ActiveWindow" value="/home/user/RiverHexActivity/Game.cs" />
+    <Property key="ActiveConfiguration" value="Debug" />
+  </Properties>
+</UserCombinePreferences>
